@@ -27,7 +27,25 @@
 .App-link {
   color: #61dafb;
 }
-
+#square-board{
+  width: 100%;
+  height:100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 30px;  
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+#square-board-container{
+  display: flex;
+  
+  padding:0 100px;
+  width: 100%;
+  height:100%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

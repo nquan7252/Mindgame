@@ -4,10 +4,10 @@ import { levels } from '../Helper/Helper';
 import { useState } from 'react';
 function SquareBoard(props) {
     const handleClick=(element)=>{
-        if(JSON.stringify(element)==JSON.stringify(props.answerColor))
+        if(props.arr.filter(single=>JSON.stringify(single)==JSON.stringify(element)).length==1)
         props.correct();
         else 
-        console.log('wrong')
+        props.incorrect();
     }
     // const[arr,setArr]=useState(new Array(levels['1'].square).fill(props.sameColors))
     // useEffect(()=>{
@@ -16,9 +16,10 @@ function SquareBoard(props) {
     //     newArr[randomSpot]=props.answerColor;
     //     setArr(newArr)
     // },[props.answerColor,props.sameColors])
-    return <div>{props.arr.map((element,index)=><Square key={index} color={element} handleClick={handleClick}></Square>)}
+    return<div id='square-board-container'><div id='square-board'>
+        {props.arr.map((element,index)=><Square key={index} color={element} handleClick={handleClick}></Square>)}
          
-    </div>
+    </div></div> 
 }
 
 export default SquareBoard;
