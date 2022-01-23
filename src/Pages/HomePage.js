@@ -4,7 +4,7 @@ import './HomePage.css'
 import { Link } from 'react-router-dom';
 function HomePage() {
     return <div id='homepage'>
-        <video id="background-vid" autoPlay muted playsInline loop src={background}></video>
+        <video className="background-vid" autoPlay muted playsInline loop src={background}></video>
         <div id='page'>
         <div id='panel'>
             <Link to='/game1'>

@@ -18,7 +18,7 @@ function Timer(props) {
         }
     }
     })
-    return <div>{time}</div>;
+    return <div id='time'>{time}</div>;
 }
 
 export default Timer;
