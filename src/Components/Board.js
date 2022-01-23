@@ -87,7 +87,7 @@ function Board() {
     }
     return play==false?
     <div>
-        <PreTimer start={startGame}/>:
+        <PreTimer start={startGame}/>
     </div>:<div id='card'>
     <Timer time={time}/>
      <SquareBoard arr={arr}  status={status} correct={correct} incorrect={incorrect}/>

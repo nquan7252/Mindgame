@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body{
+  background-color: black;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -49,6 +51,9 @@
 }
 #time{
   text-align: center;
+  margin-bottom:15px;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 #square-board-container{
   display: flex;
@@ -65,13 +70,33 @@
   text-align: center;
   background-color:black;
   width:auto;
-  padding:50px 50px;
+  padding:40px 40px;
   height:auto;
-  border-radius: 10px;
+  border-radius: 20px;
+  animation-name: rollup;
+  animation-duration: 1s;
 }
 .icon{
-  width:30px;
-  height:30px;
+  width:40px;
+  height:100%;
+  padding:0 5px
+}
+.game-page{
+  animation-name: page;
+  animation-duration:2s ;
+}
+#pre-timer{
+  animation-name: count;
+  animation-duration:1s ;
+  font-size: 5em;
+}
+#back-btn{
+  width:50px;
+  height:50px;
+  position:absolute;
+  top:0;
+  left:0;
+  padding:70px 70px
 }
 @keyframes App-logo-spin {
   from {
@@ -79,5 +104,29 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes rollup{
+  from{
+    transform: translateY(-500px);
+  }
+  to{
+    transform: translateY(0);
+  }
+}
+@keyframes page{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes count{
+  from{
+    transform: translateZ(0);
+  }
+  to{
+    transform: translateZ(-500px);
   }
 }

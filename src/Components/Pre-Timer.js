@@ -4,12 +4,11 @@ function PreTimer(props) {
     const [time,setTime]=useState(5);
     useEffect(()=>{
        
-       if (time!=0){
+       if (time!=-1){
        let interval= setInterval(()=>{
         
-            if (time>0) {
+            if (time>=0) {
             setTime(time-1)
-           
             }
         },1000)
         return ()=> {
@@ -21,7 +20,7 @@ function PreTimer(props) {
         props.start();
     }
     })
-    return <div>{time!=0?time:''}</div>;
+    return <div id='pre-timer'>{time==0?'Start':time}</div>
 }
 
 export default PreTimer;
