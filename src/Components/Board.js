@@ -28,7 +28,6 @@ function Board() {
         let greenAnswer=findValidColor(randomColorObj.greenVal);
         console.log(redAnswer,blueAnswer,greenAnswer,randomColorObj)
         return {redVal:redAnswer,greenVal:greenAnswer,blueVal:blueAnswer}
-
     }
     const [time,setTime]=useState(10);
     const getLevel=(point)=>{
@@ -60,7 +59,8 @@ function Board() {
         let newStatus={...status};
         newStatus.lives--;
         if (newStatus.lives==0){
-            setPlay(false)
+            //setPlay(false)
+            setEnd(true);
         }
         else{
         setStatus(newStatus);
@@ -71,10 +71,21 @@ function Board() {
         setArr(temp);
         }
     }
+    const restartGame=()=>{
+        setPlay(false);
+        setStatus({point:0,lives:3,level:1});
+        setEnd(false);  
+        let randomColorObj=getRandomColor();
+        let temp=new Array(levels['1'].square).fill(randomColorObj)
+        let randomSpot=Math.floor(Math.random()*(temp.length));
+        temp[randomSpot]=getAnswerColor(randomColorObj);
+        setArr(temp);
+    } 
     const [play,setPlay]=useState(false);
+    const [end,setEnd]=useState(false);
     //  const [sameColors,setSameColors]=useState(()=>getRandomColor());
     // const [answerColor,setAnswerColor]=useState(()=>getAnswerColor());
-    const [status,setStatus]=useState({point:0,lives:5,level:1})
+    const [status,setStatus]=useState({point:0,lives:3,level:1})
     const[arr,setArr]=useState(()=>{
         let randomColorObj=getRandomColor();
         let temp=new Array(levels[status.level].square).fill(randomColorObj)
@@ -85,13 +96,20 @@ function Board() {
     const startGame=()=>{
         setPlay(true);
     }
+    const endGame=()=>{
+        setEnd(true);
+    }
     return play==false?
     <div>
         <PreTimer start={startGame}/>
-    </div>:<div id='card'>
-    <Timer time={time}/>
+    </div>:end==false?<div id='card'>
+    <Timer time={time} end={endGame} point={status.point} lives={status.lives}/>
      <SquareBoard arr={arr}  status={status} correct={correct} incorrect={incorrect}/>
      <StatusBoard status={status}/>   
+    </div>:<div id='card'>
+        <h2>Game over</h2>
+        <div>Points: {status.point}</div>
+        <div style={{cursor:'pointer'}} onClick={restartGame}><img id='reset-btn' src={require('../Assets/refreshing.png')}></img></div>
     </div>
 }
 
