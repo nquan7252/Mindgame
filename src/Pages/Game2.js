@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Board from '../Components/Board';
+import Board2 from '../Components/Board';
 import vid2 from '../Assets/vid2.mp4';
 import { Link } from 'react-router-dom';
 function Game2() {
@@ -9,7 +9,7 @@ function Game2() {
         </Link>
         <video className="background-vid" autoPlay muted playsInline loop src={vid2}></video>
 
-        <Board /></div>;
+        <Board2/></div>;
 }
 
 export default Game2;

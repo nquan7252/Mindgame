@@ -6,3 +6,8 @@ export const levels={
  '4':{square:16,dif:30},
  '5':{square:16,dif:20},
 }
+export const colors=[
+    {
+        
+    }
+]
