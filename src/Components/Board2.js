@@ -2,9 +2,11 @@ import React, { Component, useState,useEffect } from 'react';
 import PreTimer from './Pre-Timer';
 import Timer from './Timer' 
 import SquareBoard from './SquareBoard';
+import Prompt from './Prompt';
 import StatusBoard from './StatusBoard';
-import { levels } from '../Helper/Helper';
-function Board() {
+import AnswerBar from './AnswerBar';
+import { colors, levels } from '../Helper/Helper';
+function Board2() {
     const getRandomColor=(temp)=>{
         let redVal=Math.floor(Math.random()*256);
         let blueVal=Math.floor(Math.random()*256);
@@ -29,7 +31,7 @@ function Board() {
         console.log(redAnswer,blueAnswer,greenAnswer,randomColorObj)
         return {redVal:redAnswer,greenVal:greenAnswer,blueVal:blueAnswer}
     }
-    const [time,setTime]=useState(10);
+    const [time,setTime]=useState(3);
     const getLevel=(point)=>{
         if (point>12)
         return 5
@@ -43,23 +45,16 @@ function Board() {
     }
     const correct=()=>{
         setTime(50);
-        console.log('ewjhfuabdjsf')
         let newStatus={...status};
         newStatus.point++;
         newStatus.level=getLevel(newStatus.point);
         setStatus(newStatus);
-        let randomColorObj=getRandomColor();
-        let temp=new Array(levels[`${newStatus.level}`].square).fill(randomColorObj)
-        let randomSpot=Math.floor(Math.random()*(temp.length));
-        console.log(temp)
-        temp[randomSpot]=getAnswerColor(randomColorObj);
-        setArr(temp);
+        setColor(colors[Math.floor(Math.random()*colors.length)]);
     }
     const incorrect=()=>{
         let newStatus={...status};
         newStatus.lives--;
         if (newStatus.lives==0){
-            //setPlay(false)
             setEnd(true);
         }
         else{
@@ -68,7 +63,7 @@ function Board() {
         let temp=new Array(levels[newStatus.level].square).fill(randomColorObj)
         let randomSpot=Math.floor(Math.random()*(temp.length));
         temp[randomSpot]=getAnswerColor(randomColorObj);
-        setArr(temp);
+        setColor(colors[Math.floor(Math.random()*colors.length)]);
         }
     }
     const restartGame=()=>{
@@ -79,7 +74,7 @@ function Board() {
         let temp=new Array(levels['1'].square).fill(randomColorObj)
         let randomSpot=Math.floor(Math.random()*(temp.length));
         temp[randomSpot]=getAnswerColor(randomColorObj);
-        setArr(temp);
+    
     } 
     const [play,setPlay]=useState(false);
     const [end,setEnd]=useState(false);
@@ -87,14 +82,7 @@ function Board() {
     // const [answerColor,setAnswerColor]=useState(()=>getAnswerColor());
     const [status,setStatus]=useState({point:0,lives:3,level:1})
     const [color,setColor]=useState(()=>{
-        
-    })
-    const[arr,setArr]=useState(()=>{
-        let randomColorObj=getRandomColor();
-        let temp=new Array(levels[status.level].square).fill(randomColorObj)
-        let randomSpot=Math.floor(Math.random()*(temp.length));
-        temp[randomSpot]=getAnswerColor(randomColorObj);
-        return temp;
+        return colors[Math.floor(Math.random()*colors.length)];
     })
     const startGame=()=>{
         setPlay(true);
@@ -107,7 +95,8 @@ function Board() {
         <PreTimer start={startGame}/>
     </div>:end==false?<div id='card'>
     <Timer time={time} end={endGame} point={status.point} lives={status.lives}/>
-     <Prompt color={}/>
+     <Prompt color={color}/>
+     <AnswerBar correct={correct} incorrect={incorrect} color={color}></AnswerBar>
      <StatusBoard status={status}/>   
     </div>:<div id='card'>
         <h2>Game over</h2>
@@ -116,4 +105,4 @@ function Board() {
     </div>
 }
 
-export default Board;
+export default Board2;

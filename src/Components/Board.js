@@ -42,7 +42,7 @@ function Board() {
         return 1
     }
     const correct=()=>{
-        setTime(50);
+        setTime(3);
         console.log('ewjhfuabdjsf')
         let newStatus={...status};
         newStatus.point++;

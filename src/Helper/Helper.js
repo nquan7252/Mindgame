@@ -8,6 +8,37 @@ export const levels={
 }
 export const colors=[
     {
-        
+        name:'Red',
+        code:'#FF0000'
+    },{
+        name:'Cyan',
+        code:'#00FFFF'
+    },{
+        name:'Blue',
+        code:'#0000FF'
+    },{
+        name:'Purple',
+        code:'#800080'
+    },{
+        name:'Yellow',
+        code:'#FFFF00'
+    },{
+        name:'Pink',
+        code:'#FFC0CB'
+    },{
+        name:'Grey',
+        code:'#808080'
+    },{
+        name:'Orange',
+        code:'#FFA500'
+    },{
+        name:'Green',
+        code:'#008000'
+    },{
+        name:'Brown',
+        code:'#654321'
+    },{
+        name:'White',
+        code:'#FFFFFF'
     }
 ]

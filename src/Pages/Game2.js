@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Board2 from '../Components/Board';
+import Board2 from '../Components/Board2';
 import vid2 from '../Assets/vid2.mp4';
 import { Link } from 'react-router-dom';
+import './game2.css'
 function Game2() {
     return <div className='game-page'>        
     <Link to='/'>

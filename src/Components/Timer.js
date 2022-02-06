@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 function Timer(props) {
     const [time,setTime]=useState(props.time);
     useEffect(()=>{
-        setTime(5)
+        setTime(props.time)
     },[props.point,props.lives])
     useEffect(()=>{
        console.log('asb')
