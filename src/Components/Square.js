@@ -7,10 +7,10 @@ function Square(props) {
             width:'80px',
             height:'80px',
             borderRadius:'6px',
-            cursor:'pointer'    
+            cursor:'pointer' 
         }
     }
-    return <div style={getColor()} onClick={()=>props.handleClick(props.color)}></div>;
+    return <div className='square' style={getColor()} onClick={()=>props.handleClick(props.color)}></div>;
 }
 
 export default Square;

@@ -125,8 +125,14 @@ a{
   text-decoration: none;
   color:white;
 }
-@media (max-width:900px){
-   
+@media (max-width:650px){
+   #back-btn{
+     padding:30px;
+   }
+   .square{
+     height:50px!important;
+     width: 50px!important;
+   }
 }
 @keyframes App-logo-spin {
   from {
