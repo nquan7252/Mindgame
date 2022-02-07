@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from 'react';
 import { colors, levels } from '../Helper/Helper';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 function AnswerBar(props) {
     const handleClick=(e)=>{
         console.log(e.target.outerText)
