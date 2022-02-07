@@ -44,7 +44,7 @@ function Board2() {
         return 1
     }
     const correct=()=>{
-        setTime(50);
+        setTime(3);
         let newStatus={...status};
         newStatus.point++;
         newStatus.level=getLevel(newStatus.point);
@@ -74,7 +74,6 @@ function Board2() {
         let temp=new Array(levels['1'].square).fill(randomColorObj)
         let randomSpot=Math.floor(Math.random()*(temp.length));
         temp[randomSpot]=getAnswerColor(randomColorObj);
-    
     } 
     const [play,setPlay]=useState(false);
     const [end,setEnd]=useState(false);

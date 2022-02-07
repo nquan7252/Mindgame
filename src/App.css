@@ -103,6 +103,20 @@ body{
   height:30px;
   padding-top:20px;
 }
+#homepage h1{
+  position: absolute;
+  top:0;
+  left:0;
+  padding: 0.2em 0.5em;
+  font-size: 3em;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: pink;
+  font-style: italic;
+}
+@media (max-width:900px){
+   
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

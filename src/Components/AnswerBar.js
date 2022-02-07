@@ -31,7 +31,7 @@ function AnswerBar(props) {
         tempArr[randomPos]=props.color;
         setArr(tempArr);
     },[props.color])
-    return<div style={{display:'flex',justifyContent:'space-around',marginTop:'20px',fontSize:'2em'}}> {arr.map((element)=><div style={{color:colors[Math.floor(Math.random()*colors.length)].code}} onClick={handleClick}>{element.name}</div>)}</div>
+    return<div style={{display:'flex',justifyContent:'space-around',marginTop:'20px',fontSize:'2em'}}> {arr.map((element)=><div style={{color:colors[Math.floor(Math.random()*colors.length)].code,cursor:'pointer'}} onClick={handleClick}>{element.name}</div>)}</div>
 }
 
 export default AnswerBar;
