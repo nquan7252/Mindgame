@@ -121,6 +121,9 @@ body{
   text-decoration: none;
   color:white;
 }
+a{
+  text-decoration: none;
+}
 @media (max-width:900px){
    
 }
